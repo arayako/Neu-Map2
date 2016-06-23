@@ -24,6 +24,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         let latDelta:CLLocationDegrees = 0.01
         let lngDelta:CLLocationDegrees = 0.01
+    
         
         let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lngDelta)
         let neuLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(myLat, myLng)
@@ -31,6 +32,15 @@ class ViewController: UIViewController, MKMapViewDelegate {
         let  theRegion:MKCoordinateRegion = MKCoordinateRegionMake(neuLocation, theSpan)
         
         self.myMapView.setRegion(theRegion, animated: true)
+        
+        let neuAnotation  = MKPointAnnotation()
+        neuAnotation.coordinate = neuLocation
+        neuAnotation.title = "มหาวิทยาลัยภาคตะวันออกเฉียงเหนือ"
+        neuAnotation.subtitle = "จังหวัดขอนแก่น"
+        
+        self.myMapView.addAnnotation(neuAnotation)
+        
+        
         
         
         
